@@ -11,3 +11,10 @@ wheels/
 
 # environment variables file
 .env
+
+# log
+*.log
+
+# downloads
+downloads/
+downloads_folder/

@@ -3,6 +3,7 @@
     "dotenv",
     "fastmcp",
     "huggingface",
+    "levelname",
     "pubchempy",
     "pycache",
     "smolagents",

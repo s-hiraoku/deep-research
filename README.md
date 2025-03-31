@@ -1,57 +1,80 @@
-# Deep Research
+# Deep Research MCP Server
 
-A Python-based research and analysis toolkit that provides various tools for data processing, text analysis, and web interaction.
+Deep Research は Web での検索と高度な調査機能を提供するエージェントベースのツールです。HuggingFace の smolagents を活用し、MCP サーバーとして実装されています。
 
-## Features
+このプロジェクトは HuggingFace の open_deep_research 事例を基に作成されています。
 
-- Text inspection and analysis tools
-- Web browsing capabilities
-- Visual QA functionalities
-- Gaia scoring system
-- Text reformulation
-- Markdown conversion utilities
-- Cookie management
-- Multi-agent system support
+## 機能
 
-## Requirements
+- Web 検索と情報収集
+- PDF およびドキュメント分析
+- 画像分析と説明
+- YouTube の字幕取得
+- アーカイブサイトの検索
 
-- Python (version specified in `.python-version`)
-- Dependencies as listed in `pyproject.toml`
+## 必要要件
 
-## Setup
+- Python 3.11 以上
+- uv パッケージマネージャー
+- 以下の API キー：
+  - OpenAI API キー
+  - HuggingFace トークン
+  - SerpAPI キー
 
-1. Clone the repository
-2. Create a `.env` file based on `.env-example`
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## インストール
 
-## Usage
+リポジトリをクローン：
 
-### Main Scripts
+```bash
+git clone https://github.com/Hajime-Y/deep-research-mcp.git
+cd deep-research-mcp
+```
 
-- `run.py` - Main execution script
-- `deep_research.py` - Core research functionality
-- `create_agent.py` - Agent creation and management
+仮想環境の作成と依存関係のインストール：
 
-### Utility Scripts
+```bash
+uv venv
+source .venv/bin/activate # LinuxまたはMac用
+# .venv\Scripts\activate # Windows用
+uv sync
+```
 
-The `scripts/` directory contains various utility tools:
+## 環境変数
 
-- `text_inspector_tool.py` - Text analysis utilities
-- `text_web_browser.py` - Web interaction capabilities
-- `visual_qa.py` - Visual question answering system
-- `gaia_scorer.py` - Scoring system implementation
-- `reformulator.py` - Text reformulation tools
-- `mdconvert.py` - Markdown conversion utilities
-- `cookies.py` - Cookie management
-- `run_agents.py` - Multi-agent system execution
+プロジェクトのルートディレクトリに`.env`ファイルを作成し、以下の環境変数を設定してください：
 
-## Configuration
+```
+OPENAI_API_KEY=your_openai_api_key
+HF_TOKEN=your_huggingface_token
+SERPER_API_KEY=your_serper_api_key
+```
 
-Configure the application by copying `.env-example` to `.env` and adjusting the settings as needed.
+SERPER_API_KEY は[Serper.dev](https://serper.dev)でサインアップすることで取得できます。
 
-## License
+## 使用方法
 
-[License information pending]
+MCP サーバーの起動：
+
+```bash
+uv run deep_research.py
+```
+
+これにより deep_research エージェントが MCP サーバーとして起動します。
+
+## 主要コンポーネント
+
+- `deep_research.py`: MCP サーバーのエントリーポイント
+- `create_agent.py`: エージェントの作成と設定
+- `scripts/`: 各種ツールとユーティリティ
+  - `text_web_browser.py`: テキストベースの Web ブラウザ
+  - `text_inspector_tool.py`: ファイル検査ツール
+  - `visual_qa.py`: 画像分析ツール
+  - `mdconvert.py`: 各種ファイル形式を Markdown に変換
+
+## ライセンス
+
+このプロジェクトは[ライセンス名]の下で提供されています。
+
+## 謝辞
+
+このプロジェクトは HuggingFace の smolagents と Microsoft の autogen プロジェクトのコードを使用しています。

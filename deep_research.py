@@ -6,9 +6,6 @@ from mcp.server.fastmcp import FastMCP
 
 from create_agent import create_agent
 
-# Initialize FastMCP server
-mcp = FastMCP("deep_research")
-
 # 環境変数を読み込む
 load_dotenv()
 
