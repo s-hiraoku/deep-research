@@ -6,6 +6,7 @@
     "levelname",
     "pubchempy",
     "pycache",
+    "SERPAPI",
     "smolagents",
     "venv"
   ]

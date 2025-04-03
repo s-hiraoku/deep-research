@@ -4,6 +4,7 @@
 import argparse
 import os
 import threading
+from typing import Any
 
 from dotenv import load_dotenv
 from huggingface_hub import login
@@ -60,7 +61,7 @@ login(os.getenv("HF_TOKEN"))
 append_answer_lock = threading.Lock()
 
 
-def parse_args():
+def parse_args() -> Any:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "question",
